@@ -19,31 +19,9 @@ body {
     padding: 0 20px;
 }
 
-/* Hero Section */
-.hero-section {
-    background: linear-gradient(135deg, rgba(88, 118, 173, 1) 0%, rgba(83, 136, 136, 1) 100%);
-    background-blend-mode: overlay;
-    color: white;
-    padding: 80px 0;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
-.hero-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="white" opacity="0.1"><polygon points="0,0 1000,100 1000,0"/></svg>');
-    background-size: cover;
-}
+
+
 
 .hero-content {
     animation: fadeInUp 1s ease-out;
@@ -557,4 +535,105 @@ body {
         width: 80%;
         justify-content: center;
     }
+
+}
+/* Hero demo styling */
+.demo-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.code-panel {
+  background: #1e1e2f;
+  border-radius: 12px;
+  color: #e5e5e5;
+  width: 420px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+  font-family: 'Fira Code', monospace;
+  font-size: 14px;
+  overflow: hidden;
+  border: 1px solid #333;
+}
+
+.code-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #2a2a3b;
+  padding: 8px 12px;
+  border-bottom: 1px solid #333;
+}
+
+.dots {
+  display: flex;
+  gap: 6px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.dot.red { background: #ff5f56; }
+.dot.yellow { background: #ffbd2e; }
+.dot.green { background: #27c93f; }
+
+.code-title {
+  font-size: 13px;
+  color: #aaa;
+  font-family: monospace;
+}
+
+.code-content {
+  padding: 16px;
+  line-height: 1.6;
+}
+
+.keyword { color: #569cd6; }
+.class-name { color: #4ec9b0; }
+.function { color: #dcdcaa; }
+.string { color: #ce9178; }
+.comment { color: #6a9955; }
+
+.gui-panel {
+  background: #f5f6fa;
+  border-radius: 12px;
+  width: 420px;
+  height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+}
+
+.gui-panel img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: contain;
+  opacity: 0.95;
+}
+
+.gui-caption {
+  margin-top: 10px;
+  color: #444;
+  font-size: 14px;
+}
+
+@media (max-width: 900px) {
+  .demo-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .code-panel, .gui-panel {
+    width: 100%;
+    max-width: 420px;
+  }
 }
