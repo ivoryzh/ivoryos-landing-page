@@ -90,13 +90,6 @@
         .logo-placeholder {
             width: 60px;
             height: 40px;
-            /*background: var(--accent-color);*/
-            /*border-radius: 4px;*/
-            /*display: flex;*/
-            /*align-items: center;*/
-            /*justify-content: center;*/
-            /*color: white;*/
-            /*font-weight: 600;*/
         }
 
         .logo-text {
@@ -131,9 +124,7 @@
             color: var(--text-primary);
         }
 
-        .nav-icon {
-            font-size: 1.2em;
-        }
+
 
         .nav-text {
             display: inline;
@@ -316,11 +307,6 @@
             position: relative;
         }
 
-        .screenshot-placeholder {
-            text-align: center;
-            color: var(--text-secondary);
-            padding: 40px;
-        }
 
         .screenshot-placeholder h3 {
             font-size: 1.2em;
@@ -442,7 +428,7 @@
             font-weight: 300;
         }
 
-        /* Problem/Solution Cards */
+        /* Problem/Solution Grid */
         .problem-solution-grid {
             display: grid;
             gap: 60px;
@@ -488,6 +474,45 @@
         .side-content {
             color: var(--text-muted);
             line-height: 1.7;
+        }
+
+        /* Bullet points */
+        .bullet-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .bullet-item {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        .bullet-icon {
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.75rem;
+            margin-top: 3px;
+        }
+
+        .problem-side .bullet-icon {
+            background: #ffe5e8;
+            color: #e74c3c;
+        }
+
+        .solution-side .bullet-icon {
+            background: #e7f7ed;
+            color: #27ae60;
         }
 
         /* Personas Grid */
@@ -760,7 +785,7 @@
             <div class="nav-right">
                 <ul class="nav-links">
                     <li><a href="#hero"><span class="nav-text">Home</span></a></li>
-                    <li><a href="#problem"><span class="nav-text">Problem</span></a></li>
+                    <li><a href="#problem"><span class="nav-text">Solution</span></a></li>
                     <li><a href="#personas"><span class="nav-text">Users</span></a></li>
                     <li><a href="#vision"><span class="nav-text">Vision</span></a></li>
                     <li><a href="#community"><span class="nav-text">Community</span></a></li>
@@ -856,47 +881,53 @@ robot = <span class="class-name">MySelfDrivingLab</span>()<br><br>
             </p>
 
             <div class="problem-solution-grid">
-                <!-- Problem -->
+                <!-- Single Card: All Problems & Solutions -->
                 <div class="problem-solution-card">
                     <div class="problem-side">
-                        <div class="side-title">The Problem</div>
+                        <div class="side-title">The Challenge</div>
                         <div class="side-content">
-                            Every self-driving lab ends up rebuilding the same infrastructure — device integration, workflow orchestration, and optimization loops.
-                            Optimizers are often custom and non-standardized, making it hard to compare or reuse results across projects.
-                            Workflows live inside codebases, hard to share, reproduce, or extend, not even mentioning making it use-friendly.
+                            <ul class="bullet-list">
+                                <li class="bullet-item">
+                                    <span class="bullet-icon">×</span>
+                                    <span>Every lab rebuilds the same infrastructure from scratch</span>
+                                </li>
+                                <li class="bullet-item">
+                                    <span class="bullet-icon">×</span>
+                                    <span>Hard to compare or reuse between different optimizers</span>
+                                </li>
+                                <li class="bullet-item">
+                                    <span class="bullet-icon">×</span>
+                                    <span>Workflows buried in code aren't shareable or reproducible</span>
+                                </li>
+                                <li class="bullet-item">
+                                    <span class="bullet-icon">×</span>
+                                    <span>No dedicated interface. Each platform has different code</span>
+                                </li>
+                            </ul>
                         </div>
                     </div>
 
-                    <!-- Solution -->
                     <div class="solution-side">
                         <div class="side-title">The IvoryOS Solution</div>
                         <div class="side-content">
-                            IvoryOS unifies how experiments are designed and executed.
-                            It turns existing Python modules into visual building blocks, enabling anyone to design, run, and optimize workflows — all from one interface.
-                            Behind the scenes, a standard execution engine ensures reproducibility, data tracking, and optimizer integration.
-                            What once required weeks of coding now takes minutes of configuration.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Impact -->
-                <div class="problem-solution-card">
-                    <div class="problem-side">
-                        <div class="side-title">The Problem for Scientists</div>
-                        <div class="side-content">
-                            Programming isn’t part of domain expertise.
-                            Scientists need to learn how each robot script works from several Python files and usually need to ask for help if they need more than a parameter tweak.
-                            Running experiments means depends on developers, slowing iteration and experimentation.
-
-                        </div>
-                    </div>
-                    <div class="solution-side">
-                        <div class="side-title">The Result</div>
-                        <div class="side-content">
-                            A universal operating system for scientific workflows —
-                            where experiment design, execution, and optimization live together and are standardized.
-                            Onboarding takes minutes, and experience is transferable between platforms.
-                            More time for discovery, less time waiting.
+                            <ul class="bullet-list">
+                                <li class="bullet-item">
+                                    <span class="bullet-icon">✓</span>
+                                    <span>Only develop core protocols — let IvoryOS handle the rest</span>
+                                </li>
+                                <li class="bullet-item">
+                                    <span class="bullet-icon">✓</span>
+                                    <span>Standardized optimizer I/O for easy use and comparison</span>
+                                </li>
+                                <li class="bullet-item">
+                                    <span class="bullet-icon">✓</span>
+                                    <span>Built-in reproducibility through standard execution engine</span>
+                                </li>
+                                <li class="bullet-item">
+                                    <span class="bullet-icon">✓</span>
+                                    <span>Universal no-code interface across all platforms</span>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -1031,6 +1062,39 @@ robot = <span class="class-name">MySelfDrivingLab</span>()<br><br>
                     </div>
                 </div>
 
+                <!-- Software Developer -->
+                <div class="persona-card">
+                    <div class="persona-left">
+                        <div class="persona-avatar">
+                            <img src="assets/personas/software.png" alt="Software Developer" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;"/>
+                        </div>
+                        <div class="persona-platform">
+                            Stories coming soon.
+                        </div>
+                    </div>
+                    <div class="persona-right">
+                        <div class="persona-header">
+                            <h3>Software Developer</h3>
+                            <div class="persona-role">Building tools for self-driving labs</div>
+                        </div>
+                        <div class="persona-sections">
+                            <div class="persona-problem">
+                                <h4>Problem</h4>
+                                <p>
+                                    Every lab builds its own interface and control logic from scratch.
+                                    There’s no shared standard for connecting instruments, optimizers, or workflows — making reuse and collaboration hard.
+                                </p>
+                            </div>
+                            <div class="persona-solution">
+                                <h4>With IvoryOS</h4>
+                                <p>
+                                    A unified interface and standardized hub for all SDL components.
+                                    Developers can focus on innovation, reuse community drivers and optimizers, and deploy workflows with zero extra setup.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <!-- Lab Manager -->
                 <div class="persona-card">
