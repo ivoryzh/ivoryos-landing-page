@@ -16,7 +16,7 @@
         :root {
             --bg-primary: #fafafa;
             --bg-secondary: #f8f9fa;
-            --bg-card: white;
+            --bg-card: #e3e8f1;
             --text-primary: #1a1a1a;
             --text-secondary: #7f8c8d;
             --text-muted: #4a4a4a;
@@ -32,7 +32,7 @@
                 --bg-primary: #1a1a1a;
                 --bg-secondary: #2d2d2d;
                 --bg-card: #2d2d2d;
-                --text-primary: #e0e0e0;
+                --text-primary: rgb(255, 255, 255);
                 --text-secondary: #a0a0a0;
                 --text-muted: #c0c0c0;
                 --border-color: #404040;
@@ -47,7 +47,7 @@
             --bg-primary: #1a1a1a;
             --bg-secondary: #2d2d2d;
             --bg-card: #2d2d2d;
-            --text-primary: #e0e0e0;
+            --text-primary: #ffffff;
             --text-secondary: #a0a0a0;
             --text-muted: #c0c0c0;
             --border-color: #404040;
@@ -126,8 +126,6 @@
             color: var(--text-primary);
         }
 
-
-
         .nav-text {
             display: inline;
         }
@@ -142,37 +140,79 @@
             font-size: 1.2em;
         }
 
-        /* Hero Section */
-        .hero {
-            background: var(--bg-card);
-            border-bottom: 1px solid var(--border-color);
+        /* Section Styles */
+        .section {
             padding: 80px 40px;
+            border-bottom: 1px solid var(--border-color);
         }
 
-        .hero-content {
-            max-width: 1300px;
+        .section.gray {
+            background: var(--bg-secondary);
+        }
+
+        .section-content {
+            max-width: 1200px;
             margin: 0 auto;
         }
 
-        .hero-header {
-            max-width: 700px;
+        .section-title {
+            font-size: 2.5em;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+            font-weight: 300;
+            letter-spacing: -0.5px;
+        }
+
+        .section-subtitle {
+            font-size: 1.2em;
+            color: var(--text-secondary);
+            margin-bottom: 50px;
+            font-weight: 300;
+            max-width: 800px;
+        }
+
+        /* Ecosystem/Hero Section */
+        .ecosystem-header {
+            max-width: 800px;
             margin-bottom: 50px;
         }
 
-        .hero-header h1 {
-            font-size: 3em;
-            font-weight: 300;
-            margin-bottom: 15px;
-            color: var(--text-primary);
-            letter-spacing: -1px;
+        .ecosystem-visual {
+            margin: 60px 0;
+            text-align: center;
         }
 
-        .hero-header p {
-            font-size: 1.3em;
-            color: var(--text-secondary);
-            font-weight: 300;
+        .ecosystem-visual img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
 
+        .cta-button {
+            display: inline-block;
+            padding: 15px 35px;
+            background-color: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: background-color 0.3s, transform 0.2s;
+            text-align: center;
+        }
+
+        .cta-button:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .cta-wrapper {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        /* Demo Section */
         .demo-container {
             display: grid;
             grid-template-columns: 450px 80px 1fr;
@@ -180,46 +220,6 @@
             align-items: start;
             margin: 40px 0;
         }
-        
-         .screenshot-container {
-            background: var(--bg-card);
-            border: 2px solid var(--border-color);
-            position: relative;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        .screenshot-header {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(44, 62, 80, 0.9);
-            opacity: 0.9;
-            backdrop-filter: blur(10px);
-            padding: 15px 30px;
-            z-index: 10;
-            text-align: center;
-        }
-
-        [data-theme="dark"] .screenshot-header {
-            background: rgba(26, 26, 26, 0.9);
-        }
-
-        .screenshot-header h3 {
-            font-size: 1.2em;
-            color: white;
-            margin-bottom: 3px;
-            font-weight: 500;
-        }
-
-        .screenshot-header p {
-            font-size: 0.85em;
-            color: rgba(255, 255, 255, 0.8);
-            margin: 0;
-        }
-
-
 
         .code-panel {
             background: #282c34;
@@ -300,6 +300,35 @@
             overflow: hidden;
         }
 
+        .screenshot-header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(44, 62, 80, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            z-index: 10;
+            text-align: center;
+        }
+
+        [data-theme="dark"] .screenshot-header {
+            background: rgba(26, 26, 26, 0.9);
+        }
+
+        .screenshot-header h3 {
+            font-size: 1.2em;
+            color: white;
+            margin-bottom: 3px;
+            font-weight: 500;
+        }
+
+        .screenshot-header p {
+            font-size: 0.85em;
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0;
+        }
+
         .screenshot-display {
             background: var(--bg-secondary);
             min-height: 500px;
@@ -307,13 +336,6 @@
             align-items: center;
             justify-content: center;
             position: relative;
-        }
-
-
-        .screenshot-placeholder h3 {
-            font-size: 1.2em;
-            margin-bottom: 10px;
-            color: var(--text-primary);
         }
 
         .carousel-nav {
@@ -401,35 +423,6 @@
             background: #2980b9;
         }
 
-        /* Section Styles */
-        .section {
-            padding: 80px 40px;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .section.gray {
-            background: var(--bg-secondary);
-        }
-
-        .section-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-size: 2em;
-            color: var(--text-primary);
-            margin-bottom: 15px;
-            font-weight: 400;
-        }
-
-        .section-subtitle {
-            font-size: 1.2em;
-            color: var(--text-secondary);
-            margin-bottom: 50px;
-            font-weight: 300;
-        }
-
         /* Problem/Solution Grid */
         .problem-solution-grid {
             display: grid;
@@ -478,7 +471,6 @@
             line-height: 1.7;
         }
 
-        /* Bullet points */
         .bullet-list {
             list-style: none;
             display: flex;
@@ -550,6 +542,7 @@
             justify-content: center;
             font-size: 3em;
             margin: 0 auto 15px;
+            overflow: hidden;
         }
 
         .persona-platform {
@@ -626,61 +619,7 @@
             line-height: 1.6;
         }
 
-        /* Vision Section */
-        .vision-content {
-            max-width: 900px;
-            margin: 0 auto;
-        }
 
-        .vision-intro {
-            font-size: 1.1em;
-            line-height: 1.8;
-            color: var(--text-muted);
-            margin-bottom: 40px;
-        }
-
-        .vision-steps {
-            display: grid;
-            gap: 25px;
-            margin-top: 40px;
-        }
-
-        .vision-step {
-            background: var(--bg-card);
-            padding: 25px;
-            border-left: 4px solid var(--accent-color);
-            display: flex;
-            gap: 20px;
-            align-items: flex-start;
-        }
-
-        .step-number {
-            background: var(--accent-color);
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-            flex-shrink: 0;
-        }
-
-        .step-content {
-            flex: 1;
-        }
-
-        .step-content strong {
-            color: var(--text-primary);
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .step-content p {
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
 
         /* Acknowledgements */
         .acknowledgements-section {
@@ -693,11 +632,6 @@
             height: 60px;
             filter: grayscale(0.3);
             transition: all 0.3s;
-        }
-
-        .lab-logo:hover {
-            filter: grayscale(0%);
-            opacity: 1;
         }
 
 
@@ -754,7 +688,7 @@
                 padding-top: 0;
             }
 
-            .hero-header h1 {
+            .section-title {
                 font-size: 2em;
             }
 
@@ -770,10 +704,6 @@
             .section {
                 padding: 50px 20px;
             }
-
-            .hero {
-                padding: 50px 20px;
-            }
         }
     </style>
 </head>
@@ -781,15 +711,14 @@
     <nav>
         <div class="container">
             <div class="logo-container">
-                <div class="logo-placeholder"><img src="assets/logos/ivoryos_logo.png" height="40px"  alt="ivoryos_logo"/></div>
+                <div class="logo-placeholder"><img src="assets/logos/ivoryos_logo.png" height="40px" alt="ivoryos_logo"/></div>
                 <div class="logo-text">IvoryOS</div>
             </div>
             <div class="nav-right">
                 <ul class="nav-links">
-                    <li><a href="#hero"><span class="nav-text">Home</span></a></li>
-                    <li><a href="#problem"><span class="nav-text">Solution</span></a></li>
-                    <li><a href="#personas"><span class="nav-text">Users</span></a></li>
-                    <li><a href="#vision"><span class="nav-text">Vision</span></a></li>
+                    <li><a href="#home"><span class="nav-text">Home</span></a></li>
+                    <li><a href="#developer"><span class="nav-text">Solution</span></a></li>
+                    <li><a href="#personas"><span class="nav-text">Why IvoryOS</span></a></li>
                     <li><a href="#community"><span class="nav-text">Community</span></a></li>
                 </ul>
                 <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
@@ -797,12 +726,41 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero">
-        <div class="hero-content">
-            <div class="hero-header">
-                <h1>From Code to Self-Driving Lab<br>in One Line</h1>
-                <p>Write your lab automation once. IvoryOS turns it into an experiment platform.</p>
+    <!-- Ecosystem Hub Section -->
+    <section id="home" class="section">
+        <div class="section-content">
+            <div class="ecosystem-header">
+                <h1 class="section-title">Grab-and-Go Automation</h1>
+                <p class="section-subtitle">
+                    Discover community-curated hardware drivers, analysis modules, and hands-on templates.
+                    Generate a portable starter package and start building your own self-driving lab with IvoryOS.
+                </p>
+            </div>
+
+            <div class="ecosystem-visual">
+                <img src="assets/generated_hero.png" alt="IvoryOS Ecosystem" />
+            </div>
+
+            <div class="cta-wrapper">
+                <a href="https://ivoryzh.github.io/ivoryOS-hub/" target="_blank" class="cta-button">
+                    Try IvoryOS Hub
+                </a>
+                <a href="https://discord.gg/3KdjhUmsYA"
+                   target="_blank"
+                   class="cta-button"
+                   style="background: #8a9ad6;">
+                    Join our Discord
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Developer Demo Section -->
+    <section id="developer" class="section gray">
+        <div class="section-content">
+            <div class="ecosystem-header">
+                <h2 class="section-title">Powered by IvoryOS</h2>
+                <p class="section-subtitle">Write your lab automation once. IvoryOS turns it into an experiment platform in one line.</p>
             </div>
 
             <div class="demo-container">
@@ -859,80 +817,7 @@ robot = <span class="class-name">MySelfDrivingLab</span>()<br><br>
             </div>
 
             <div class="cta-section">
-                <p class="cta-text">One line. That's all it takes.</p>
                 <div class="cta-code">ivoryos.run(__name__)</div>
-                <p class="cta-text">Your code becomes an experiment platform. No frontend needed.</p>
-            </div>
-
-            <div class="badges">
-                <a href="https://demo.ivoryos.ai" target="_blank" class="badge">Launch Demo</a>
-                <a href="https://gitlab.com/heingroup/ivoryos" target="_blank" class="badge">GitLab</a>
-                <a href="https://www.nature.com/articles/s41467-025-60514-w" target="_blank" class="badge">Publication</a>
-                <a href="https://gitlab.com/heingroup/ivoryos-suite/ivoryos-mcp" target="_blank" class="badge">MCP Server</a>
-                <a href="#community" class="badge">Join our Community</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Problem/Solution Section -->
-    <section id="problem" class="section gray">
-        <div class="section-content">
-            <h2 class="section-title">The Problem & Solution</h2>
-            <p class="section-subtitle">
-                Scientific automation has advanced — but building and running experiments still feels like starting from scratch.
-            </p>
-
-            <div class="problem-solution-grid">
-                <!-- Single Card: All Problems & Solutions -->
-                <div class="problem-solution-card">
-                    <div class="problem-side">
-                        <div class="side-title">The Challenge</div>
-                        <div class="side-content">
-                            <ul class="bullet-list">
-                                <li class="bullet-item">
-                                    <span class="bullet-icon">×</span>
-                                    <span>Every lab rebuilds the same infrastructure from scratch</span>
-                                </li>
-                                <li class="bullet-item">
-                                    <span class="bullet-icon">×</span>
-                                    <span>Hard to compare or reuse between different optimizers</span>
-                                </li>
-                                <li class="bullet-item">
-                                    <span class="bullet-icon">×</span>
-                                    <span>Workflows buried in code aren't shareable or reproducible</span>
-                                </li>
-                                <li class="bullet-item">
-                                    <span class="bullet-icon">×</span>
-                                    <span>No dedicated interface. Each platform has different code</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="solution-side">
-                        <div class="side-title">The IvoryOS Solution</div>
-                        <div class="side-content">
-                            <ul class="bullet-list">
-                                <li class="bullet-item">
-                                    <span class="bullet-icon">✓</span>
-                                    <span>Only develop core protocols — let IvoryOS handle the rest</span>
-                                </li>
-                                <li class="bullet-item">
-                                    <span class="bullet-icon">✓</span>
-                                    <span>Standardized optimizer I/O for easy use and comparison</span>
-                                </li>
-                                <li class="bullet-item">
-                                    <span class="bullet-icon">✓</span>
-                                    <span>Built-in reproducibility through standard execution engine</span>
-                                </li>
-                                <li class="bullet-item">
-                                    <span class="bullet-icon">✓</span>
-                                    <span>Universal no-code interface across all platforms</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -941,11 +826,38 @@ robot = <span class="class-name">MySelfDrivingLab</span>()<br><br>
     <!-- Personas Section -->
     <section id="personas" class="section">
         <div class="section-content">
-            <h2 class="section-title">Who It's For</h2>
+            <h2 class="section-title">Why IvoryOS</h2>
             <p class="section-subtitle">IvoryOS serves everyone in the lab automation ecosystem.</p>
 
             <div class="personas-grid">
 
+                <!-- Automation Scientist -->
+                <div class="persona-card">
+                    <div class="persona-left">
+                        <div class="persona-avatar">
+                            <img src="assets/personas/automation.png" alt="Automation Scientist" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;"/>
+                        </div>
+                        <div class="persona-platform">
+                            Stories coming soon.
+                        </div>
+                    </div>
+                    <div class="persona-right">
+                        <div class="persona-header">
+                            <h3>Automation Scientist</h3>
+                            <div class="persona-role">Rapid prototyping & R&D</div>
+                        </div>
+                        <div class="persona-sections">
+                            <div class="persona-problem">
+                                <h4>Problem</h4>
+                                <p>Rapidly prototyping workflows across different hardware setups is slow and hard to share.</p>
+                            </div>
+                            <div class="persona-solution">
+                                <h4>With IvoryOS</h4>
+                                <p>Pick hardware APIs, connect components, and prototype workflows in minutes. Deliver reproducible templates.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <!-- Platform Developer -->
                 <div class="persona-card">
                     <div class="persona-left">
@@ -979,91 +891,6 @@ robot = <span class="class-name">MySelfDrivingLab</span>()<br><br>
                         </div>
                     </div>
                 </div>
-
-                <!-- Experimental Scientist -->
-                <div class="persona-card">
-                    <div class="persona-left">
-                        <div class="persona-avatar">
-                            <img src="assets/personas/scientist.png" alt="Experimental Scientist" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;"/>
-                        </div>
-                        <div class="persona-platform">
-                            Stories coming soon.
-                        </div>
-                    </div>
-                    <div class="persona-right">
-                        <div class="persona-header">
-                            <h3>Experimental Scientist</h3>
-                            <div class="persona-role">Domain expert, non-programmer</div>
-                        </div>
-                        <div class="persona-sections">
-                            <div class="persona-problem">
-                                <h4>Problem</h4>
-                                <p>Understands lab logic but can't translate it to Python. Must ask IT for every change beyond clicking "run".</p>
-                            </div>
-                            <div class="persona-solution">
-                                <h4>With IvoryOS</h4>
-                                <p>Design and run experiments independently. Visual interface shows equivalent Python code—learn coding while doing science.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Hardware Developer -->
-                <div class="persona-card">
-                    <div class="persona-left">
-                        <div class="persona-avatar">
-                            <img src="assets/personas/hardware.png" alt="Hardware Developer" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
-                        </div>
-                        <div class="persona-platform">
-                            Stories coming soon.
-                        </div>
-                    </div>
-                    <div class="persona-right">
-                        <div class="persona-header">
-                            <h3>Hardware Developer</h3>
-                            <div class="persona-role">Builds custom hardware & instruments</div>
-                        </div>
-                        <div class="persona-sections">
-                            <div class="persona-problem">
-                                <h4>Problem</h4>
-                                <p>Builds great hardware but lacks resources to create dedicated software interfaces for each device.</p>
-                            </div>
-                            <div class="persona-solution">
-                                <h4>With IvoryOS</h4>
-                                <p>Instant GUI for custom hardware. Users test features immediately or integrate devices into autonomous workflows.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Automation Scientist -->
-                <div class="persona-card">
-                    <div class="persona-left">
-                        <div class="persona-avatar">
-                            <img src="assets/personas/automation.png" alt="Automation Scientist" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;"/>
-                        </div>
-                        <div class="persona-platform">
-                            Stories coming soon.
-                        </div>
-                    </div>
-                    <div class="persona-right">
-                        <div class="persona-header">
-                            <h3>Automation Scientist</h3>
-                            <div class="persona-role">Rapid prototyping & R&D</div>
-                        </div>
-                        <div class="persona-sections">
-                            <div class="persona-problem">
-                                <h4>Problem</h4>
-                                <p>Rapidly prototyping workflows across different hardware setups is slow and hard to share.</p>
-                            </div>
-                            <div class="persona-solution">
-                                <h4>With IvoryOS</h4>
-                                <p>Import hardware APIs, connect components, and prototype workflows like “heat until color changes” in minutes. Easy replicate the</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
                 <!-- Software Developer -->
                 <div class="persona-card">
                     <div class="persona-left">
@@ -1083,153 +910,23 @@ robot = <span class="class-name">MySelfDrivingLab</span>()<br><br>
                             <div class="persona-problem">
                                 <h4>Problem</h4>
                                 <p>
-                                    Every lab builds its own interface and control logic from scratch.
                                     There’s no shared standard for connecting instruments, optimizers, or workflows — making reuse and collaboration hard.
                                 </p>
                             </div>
                             <div class="persona-solution">
                                 <h4>With IvoryOS</h4>
                                 <p>
-                                    A unified interface and standardized hub for all SDL components.
-                                    Developers can focus on innovation, reuse community drivers and optimizers, and deploy workflows with zero extra setup.
+                                    Focus on innovation, build and share scientist-friendly tools, reuse community drivers and optimizers, and deploy workflows with zero extra setup.
                                 </p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Lab Manager -->
-                <div class="persona-card">
-                    <div class="persona-left">
-                        <div class="persona-avatar">
-                            <img src="assets/personas/boss.png" alt="Lab Manager" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;"/>
-                        </div>
-                        <div class="persona-platform">
-                            Stories coming soon.
-                        </div>
-                    </div>
-                    <div class="persona-right">
-                        <div class="persona-header">
-                            <h3>Lab Manager</h3>
-                            <div class="persona-role">Decision maker & facilitator</div>
-                        </div>
-                        <div class="persona-sections">
-                            <div class="persona-problem">
-                                <h4>Problem</h4>
-                                <p>Manages multiple projects with different scripts, instruments, and training requirements. Coordination is complex.</p>
-                            </div>
-                            <div class="persona-solution">
-                                <h4>With IvoryOS</h4>
-                                <p>One question: "Is it IvoryOS-ready?" Standardized workflow ensures consistency and knowledge retention as people come and go.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Educator -->
-                <div class="persona-card">
-                    <div class="persona-left">
-                        <div class="persona-avatar">
-                            <img src="assets/personas/educator.png" alt="Educator" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;"/>
-                        </div>
-                        <div class="persona-platform">Stories coming soon.</div>
-                    </div>
-                    <div class="persona-right">
-                        <div class="persona-header">
-                            <h3>Educator</h3>
-                            <div class="persona-role">Teaching lab automation to kids & undergrads</div>
-                        </div>
-                        <div class="persona-sections">
-                            <div class="persona-problem">
-                                <h4>Problem</h4>
-                                <p>
-                                Lab automation is hard to teach. Coding-heavy tools make it difficult for students and early researchers
-                                to gain real, hands-on experience.
-                                </p>
-                            </div>
-                            <div class="persona-solution">
-                                <h4>With IvoryOS</h4>
-                                <p>Like Scratch for lab automation. Visual drag-and-drop interface makes scientific workflows accessible to all ages. Students learn automation concepts while seeing real Python code generated—building both intuition and coding skills.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- Vision Section -->
-    <section id="vision" class="section gray">
-        <div class="section-content">
-            <h2 class="section-title">Our Vision</h2>
-            <p class="section-subtitle">The standard software ecosystem for self-driving labs</p>
-
-            <div class="vision-content">
-                <div class="vision-intro">
-                    IvoryOS is the first and only truly adoptable user interface for the self-driving lab (SDL) community.
-                    Our goal is to standardize the user experience across labs, instruments, and optimizers.
-                    We want to make it easy for anyone to build, run, and optimize workflows with flexibility but zero code.
-                    With growing community effort toward building compatible drivers, more standard optimizer I/O, we envision IvoryOS evolving into the standard software ecosystem for SDL builders and scientists.
-                </div>
-
-                <h3 style="color: var(--text-primary); margin-bottom: 20px; font-size: 1.3em;">In this future, a true plug-and-play: </h3>
-
-                <div class="vision-steps">
-                    <div class="vision-step">
-                        <div class="step-number">1</div>
-                        <div class="step-content">
-                            <strong>Choose community-contributed drivers</strong>
-                        </div>
-                    </div>
-
-                    <div class="vision-step">
-                        <div class="step-number">2</div>
-                        <div class="step-content">
-                            <strong>Choose community-contributed optimizer(s)</strong>
-                        </div>
-                    </div>
-
-                    <div class="vision-step">
-                        <div class="step-number">3</div>
-                        <div class="step-content">
-                            <strong>Use prompted form for device connections</strong>
-                            <p>Input device connection info (e.g., port, IP) through a simple form. Generate script for installing required packages, instrument connections, compose to executable</p>
-                        </div>
-                    </div>
-
-                    <div class="vision-step">
-                        <div class="step-number">4</div>
-                        <div class="step-content">
-                            <strong>Download IvoryOS.exe to start experiments</strong>
-                            <p>Zero-code deployment — just download, run, and start experiments.</p>
-                        </div>
-                    </div>
-
-                    <div class="vision-step">
-                        <div class="step-number">5</div>
-                        <div class="step-content">
-                            <strong>Browse community protocols</strong>
-                            <p>Based on the selected instruments, browse community protocols/templates, use directly or adapt</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Link to POC app -->
-            <div style="text-align: center; margin-top: 30px;">
-                <a href="https://ivoryzh.github.io/ivoryOS-hub/" target="_blank"
-                   style="display: inline-block; padding: 12px 28px;
-                          background-color: var(--accent-color);
-                          color: white;
-                          text-decoration: none;
-                          border-radius: 8px;
-                          font-weight: 600;
-                          transition: background-color 0.3s;">
-                    Try IvoryOS Hub
-                </a>
-            </div>
-        </div>
-    </section>
 
     <!-- Community Section -->
     <section id="community" class="section">
@@ -1237,29 +934,28 @@ robot = <span class="class-name">MySelfDrivingLab</span>()<br><br>
             <h2 class="section-title">Community</h2>
             <div style="text-align: center; padding: 100px 40px; color: var(--text-secondary);">
                 <p style="margin-bottom: 25px;">
-                    Express your interest in the IvoryOS community — contribute drivers, workflows, or ideas, and help shape the future of open scientific automation.
+                    Be part of the growing IvoryOS community. Whether you're sharing instrument drivers,
+                    contributing workflows, offering ideas, or exploring automation for your lab,
+                    your participation helps expand an open, collaborative ecosystem for scientific innovation.
                 </p>
-                <details style="max-width: 900px; margin: 0 auto; text-align: left;">
-                    <summary style="cursor: pointer; font-weight: 600; font-size: 1.1em; color: var(--accent-color); padding: 12px 20px; border-radius: 12px; background: var(--card-bg); box-shadow: var(--shadow-light);">
-                        📋 Open Community Interest Survey
-                    </summary>
-                    <div style="margin-top: 20px;">
-                        <iframe
-                            src="https://docs.google.com/forms/d/e/1FAIpQLSey4JpOeCdALlY5uGRyY1k6cZlBx1PsPaPh-E23hGc5j4kSWg/viewform?embedded=true"
-                            width="100%"
-                            height="2350"
-                            frameborder="0"
-                            marginheight="0"
-                            marginwidth="0"
-                            style="border: none; border-radius: 12px;"
-                        >
-                            Loading…
-                        </iframe>
-                    </div>
-                </details>
+                <a href="https://discord.gg/3KdjhUmsYA"
+                   target="_blank"
+                   style="display: block;
+                          text-align: center;
+                          padding: 20px;
+                          background: #8a9ad6;
+                          border-radius: 12px;
+                          color: var(--text-primary);
+                          text-decoration: none;
+                          font-size: 1.2em;
+                          max-width: 900px;
+                          margin: 0 auto;">
+                    Join our Discord Community
+                </a>
             </div>
         </div>
     </section>
+
 
 
     <!-- Acknowledgements Section -->
@@ -1285,6 +981,7 @@ robot = <span class="class-name">MySelfDrivingLab</span>()<br><br>
         <div class="container">
             <p style="margin-top: 10px; font-size: 0.9em;">Built for scientists, by scientists.</p>
             <div class="footer-links">
+                 <a href="https://demo.ivoryos.ai" target="_blank"  class="footer-link">Launch Demo</a>
                 <a href="https://gitlab.com/heingroup/ivoryos" class="footer-link">GitLab</a>
                 <a href="https://ivoryos.readthedocs.io/" class="footer-link">Documentation</a>
                 <a href="https://pypi.org/project/ivoryos/" class="footer-link">PyPI</a>
